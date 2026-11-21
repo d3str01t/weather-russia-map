@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Погода в городах России — Карта</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <header>
+        <h1>Погода в городах России</h1>
+        <div class="search-box">
+            <input type="text" id="cityInput" placeholder="Введите город (например, Казань)" />
+            <button id="searchBtn">Найти</button>
+        </div>
+        <div id="history" class="history"></div>
+    </header>
+
+    <main>
+        <div id="map"></div>
+        <aside id="weatherPanel">
+            <div id="loading" class="hidden">Загрузка...</div>
+            <div id="error" class="hidden"></div>
+            <div id="weatherContent">
+                <p class="placeholder">Выберите город на карте или выполните поиск</p>
+            </div>
+        </aside>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

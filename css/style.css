@@ -1,0 +1,112 @@
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; }
+body { 
+    font-family: system-ui, sans-serif; 
+    background: #f5f5f5; 
+    color: #222; 
+}
+
+header {
+    padding: 16px;
+    background: #1a3a5c;
+    color: white;
+}
+
+.search-box {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.search-box button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background: #2ecc71;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.history {
+    margin-top: 8px; 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 6px; 
+}
+.history-btn {
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    height: calc(100vh - 160px);
+}
+
+#map { height: 50vh; width: 100%; }
+
+#weatherPanel {
+    padding: 16px;
+    background: white;
+    overflow-y: auto;
+}
+
+.hidden { 
+    display: none; 
+}
+#error { 
+    color: #c0392b; 
+    padding: 12px; 
+    background: #fdecea; 
+    border-radius: 6px; 
+}
+
+.current-weather {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 16px 0;
+}
+.temp-big { font-size: 56px; font-weight: bold; color: #1a3a5c; }
+
+.forecast {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-top: 12px;
+}
+.forecast-day {
+    background: #f0f4f8;
+    padding: 8px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 13px;
+}
+
+/* Десктоп */
+@media (min-width: 768px) {
+    main { grid-template-columns: 60% 40%; height: calc(100vh - 140px); }
+    #map { height: 100%; }
+    #weatherPanel { height: 100%; }
+}
+.leaflet-control-attribution {
+    display: none !important;
+}
