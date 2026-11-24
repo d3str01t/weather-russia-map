@@ -94,13 +94,17 @@ const DEFAULT_CITIES = [
 ];
 
 function initMap(onCitySelect) {
-    map = L.map('map').setView([61.0, 90.0], 3); // Центр России, широкий охват
+    onCitySelectCallback = onCitySelect;
+    
+    map = L.map('map').setView([61.0, 90.0], 3);
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=ВАШ КЛЮЧ', {
-    attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-    subdomains: 'abcd',
-    maxZoom: 20
-}).addTo(map);
+    const cartoKey = window.APP_CONFIG ? window.APP_CONFIG.CARTO_API_KEY : '';
+
+    L.tileLayer(`https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=${cartoKey}`, {
+        attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+        subdomains: 'abcd',
+        maxZoom: 20
+    }).addTo(map);
 
 
     DEFAULT_CITIES.forEach(city => {
